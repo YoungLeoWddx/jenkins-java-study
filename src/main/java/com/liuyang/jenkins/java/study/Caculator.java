@@ -15,6 +15,8 @@ public class Caculator {
 	 * @param b  第二个被加数
 	 * @return  返回求和的结果
 	 */
+	
+	
 	public int add(int a,int b){
 		return a + b;
 	}
