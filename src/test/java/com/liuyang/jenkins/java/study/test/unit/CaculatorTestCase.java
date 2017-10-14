@@ -31,6 +31,8 @@ public class CaculatorTestCase {
 	public void testToSeason() {
 		assertEquals("spring", caculaor.toSeason(3));
 		assertEquals("summer", caculaor.toSeason(7));
+		assertEquals("autumn", caculaor.toSeason(10));
+		assertEquals("winter", caculaor.toSeason(1));
 	}
 
 }
