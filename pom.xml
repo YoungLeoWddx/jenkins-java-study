@@ -24,4 +24,27 @@
     </dependency>
   </dependencies>
  
+ <build>
+ 	<plugins>
+ 		<!-- 这是一个官方的插件，输出源码的插件 -->
+	      <plugin>
+	      	<groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-source-plugin</artifactId>
+	        <version>3.0.0</version>
+	        <!-- 执行插件的一些设置 -->
+	        <executions>
+	        	<execution>
+	        		<!-- 执行的任务的id，起名为attach-source -->
+	        		<id>attach-source</id>
+	        		<!-- 在生命周期的那个阶段执行，这里设置在package阶段执行 -->
+	        		<phase>package</phase>
+	        		<!-- 配置执行插件的目标（一个插件内部有很多个执行目标） -->
+	        		<goals>
+	        			<goal>jar-no-fork</goal>
+	        		</goals>
+	        	</execution>
+	        </executions>
+	      </plugin>
+ 	</plugins>
+ </build>
 </project>
