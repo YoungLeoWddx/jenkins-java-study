@@ -9,6 +9,18 @@ package com.liuyang.jenkins.java.study;
  * created on 2017年10月14日下午3:13:05
  */
 public class Caculator {
+	public static final int JAN = 1;
+	public static final int FEBR = 2;
+	public static final int MAR = 3;
+	public static final int APRI = 4;
+	public static final int MAY = 5;
+	public static final int JUNE = 6;
+	public static final int JULY = 7;
+	public static final int AUG = 8;
+	public static final int SEMP = 9;
+	public static final int OCT = 10;
+	public static final int NOV = 11;
+	public static final int DEC = 12;
 	/**
 	 * 加法运算
 	 * @param a  第一个被加数
@@ -56,24 +68,24 @@ public class Caculator {
 	public String toSeason(int month){
 		String season = null;
 		switch (month) {
-		case 3:
-		case 4:
-		case 5:
+		case MAR:
+		case APRI:
+		case MAY:
 			season = "spring";
 			break;
-		case 6:
-		case 7:
-		case 8:
+		case JUNE:
+		case JULY:
+		case AUG:
 			season = "summer";
 			break;
-		case 9:
-		case 10:
-		case 11:
+		case SEMP:
+		case OCT:
+		case NOV:
 			season = "autumn";
 			break;
-		case 12:
-		case 1:
-		case 2:
+		case DEC:
+		case JAN:
+		case FEBR:
 			season = "winter";
 			break;
 		default:
