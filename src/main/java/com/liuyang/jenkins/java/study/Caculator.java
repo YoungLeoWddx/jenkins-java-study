@@ -2,7 +2,7 @@ package com.liuyang.jenkins.java.study;
 
 
 /**
- * 计算器类
+ * <p>计算器类</p>
  * @author 柳杨
  * @version V1.0.0 
  * created on 2017年10月14日  15:13:05
@@ -32,14 +32,13 @@ public class Caculator {
 	public static final int NOV = 11;
 	/**DEC 十二月*/
 	public static final int DEC = 12;
+	
 	/**
 	 * 加法运算
 	 * @param a  第一个被加数
 	 * @param b  第二个被加数
 	 * @return  返回求和的结果
 	 */
-	
-	
 	public int add(int a,int b){
 		return a + b;
 	}
