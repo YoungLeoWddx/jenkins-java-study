@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+    "http://checkstyle.sourceforge.net/dtds/configuration_1_3.dtd">
+<module name="Checker">
+	<!-- 这个属性是告知Checker以UTF-8解码文本来进行源码检查，如果不配置，那么默认是System property "file.encoding" -->
+	<property name="charset" value="UTF-8"/>
+	<!-- 这个属性可以指定需要检查的文件后缀名，默认是null，就是任何文件都检查 -->
+	<property name="fileExtensions" value="java, xml, properties"/>
+	<!-- 如果不符合的严重级别，这里直接为error级别，默认也是error，如果你想看到红叉，也可以用warning，ignore、info、warning、error。 -->
+	<property name="severity" value="error"/>
+	
+	 
+	 <!-- JavadocPackage是所有的源码包，都必须包含包文档文件，文件名是，package-info.java，在生产javadoc文档的时候，包含包的文档 -->
+	<module name="JavadocPackage"/>
+	
+	
+    
+    <!-- 
+    	许多检查模块是TreeWalker模块的子模块。 TreeWalker通过将每个Java源文件单独转换为抽象语法树，然后将结果传递给每个子模块，
+    	这些子模块又可以查看树的某些方面进行检查。FileSetChecker moudle中的许多module都是TreeWalker module的子模块。
+     -->
+    <module name="TreeWalker">
+    	<!-- TreeWalker中默认只检查.java后缀名，改成null就可以检查任意文件名后缀的文件了 -->
+    	<property name="fileExtensions" value="java"/>
+    	
+    	<!-- 确保一个类有package声明 -->   
+        <module name="PackageDeclaration" />   
+    	<!-- 包名的检查（只允许小写字母） -->   
+        <module name="PackageName">   
+            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$" />   
+        </module>   
+    	<!-- 不能有*的导入 -->
+        <module name="AvoidStarImport"/>
+        <!-- 不允许静态导入 -->
+		<module name="AvoidStaticImport" />
+        <!-- 不允许非法导入 -->
+        <module name="IllegalImport"/>
+        <!-- 不允许多余的导入 -->
+        <module name="RedundantImport"/>
+        <!-- 未使用的导入 -->
+        <module name="UnusedImports"/>
+        
+        
+        <!-- javadoc的检查，CTOR_DEF是构造方法定义的意思 ,name="AtclauseOrder这里是规范javadoc注释的顺序-->
+        <module name="AtclauseOrder">
+		    <property name="tagOrder" value="@author, @version, @param,
+		    @return, @throws, @exception, @see, @since, @serial,
+		    @serialField, @serialData, @deprecated"/>
+		    <property name="target" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF,
+		    METHOD_DEF, CTOR_DEF, VARIABLE_DEF"/>
+		</module>
+		
+		<!-- 方法javadoc注释检查 -->
+		<module name="JavadocMethod">
+			<!-- 允许什么注解的方法，不用写方法javadoc注释，默认就是Override注解 -->
+			<property name="allowedAnnotations" value="Override"/>
+			<!-- 检查javadoc注释方法的最低可见性，默认是private方法也检查，这里改成public -->
+			<property name="scope" value="public"/>
+			<!-- 允许属性的get和set方法不加javadoc注释 -->
+			<property name="allowMissingPropertyJavadoc" value="true"/>
+		</module>
+        
+        <!-- 类，接口等javadoc注释检查 -->
+        <module name="JavadocType">
+           <!-- 检查javadoc注释方法的最低可见性，默认是private方法也检查，这里改成public -->
+		   <property name="scope" value="public"/>
+		   <!-- 作者的姓名，只能是中文格式，中文数字不能少于2个 -->
+		   <property name="authorFormat" value="^[\u4e00-\u9fa5]{2,}$"/>
+		   <!-- 版本的格式，只能是v1.0.0这样的格式 -->
+		   <property name="versionFormat" value="^V[0-9]+\.[0-9]+\.[0-9]+$"/>
+		</module>
+        
+        <!-- 变量注释 -->
+        <module name="JavadocVariable">
+		   <property name="ignoreNamePattern" value="log|logger"/>
+		</module>
+        
+        <!-- javadoc注释本身的style检查 -->
+        <module name="JavadocStyle">
+           <!-- 检查最低可见性资源上的javadoc注释，默认是private，这里改成public -->
+		   <property name="scope" value="public"/>
+		   <!-- 不允许完全空的javadoc和空的tag，比如@param @return都是空的，是不行的，包括空的描述信息也是不行的 -->
+		   <property name="checkEmptyJavadoc" value="true"/>
+		   <!-- 检查注释的第一句是否以某个符号结尾，这里改成false，默认是true -->
+		   <property name="checkFirstSentence" value="false"/>
+		</module>
+		
+		
+		<!-- Block check -->
+		<!--  不允许空块 -->
+		<module name="EmptyBlock" />
+		<!-- 所有块都要使用大括号 -->   
+        <module name="NeedBraces" />
+		
+		
+		<!-- 良好书写代码习惯 -->
+		<!-- 类声明的顺序：
+			先static变量，（public，protected，package，private） 
+			实例变量，（public，protected，package，private）
+			构造方法
+			普通方法（static和非static）
+		-->
+		<!-- 
+			检查定义了共变equals()方法的类中是否同样覆盖了equals(java.lang.Object)方法。这项检查受到FindBugs的启发。
+			解释：错误地定义了一个共变equals()方法，而没有覆盖equals(java.lang.Object)方法，可能会产生不可预料的运行时行为。
+		 -->
+		<module name="CovariantEquals"/>
+		<module name="DeclarationOrder"/>
+		<!-- 在switch语句中，default选项出现在最后 -->
+		<module name="DefaultComesLast"/>
+		<!-- 缺少default的switch -->
+		<module name="MissingSwitchDefault"/>
+		<!-- 拒绝只有 单个分号的空语句 -->
+		<module name="EmptyStatement"/>
+		<!-- 避免调用空引用的equals方法 -->
+		<module name="EqualsAvoidNull"/>
+		<!-- 重写equals就要重写hashCode -->
+		<module name="EqualsHashCode"/>
+		 <!-- 不允许魔法数 ， 默认情况下，-1, 0, 1, and 2不是魔法数字-->   
+        <module name="MagicNumber" />
+        <!-- 相同的字符串是否出现多次，应该用常量代替 -->
+        <module name="MultipleStringLiterals"/>
+        <!-- 限制for循环的深度，默认是1，这里设置2 -->
+        <module name="NestedForDepth">
+		    <property name="max" value="2"/>
+		</module>
+		<!-- if嵌套的深度，默认是1，这里设置成2 -->
+		<module name="NestedIfDepth">
+		    <property name="max" value="2"/>
+		</module>
+		<!-- try嵌套的深度，默认是1，这里设置成2 -->
+		<module name="NestedTryDepth">
+		    <property name="max" value="2"/>
+		</module>
+		<!-- 一行一条语句 -->
+		<module name="OneStatementPerLine"/>
+		<!-- 不允许对方法参数进行赋值 ，对参数的赋值通常被认为是缺乏编程实践经验。强迫开发者将参数声明为final通常是非常麻烦的。这项检查可以确保参数从不会被赋值，这对于双方都是好事。-->
+		<module name="ParameterAssignment"/>
+		<!-- 字符串是否使用了==代替了equals -->
+		<module name="StringLiteralEquality"/>
+		
+		
+		<!-- 复杂度 -->
+		<!-- 检查数组类型的定义是String[] args，而不是String args[] -->   
+        <module name="ArrayTypeStyle" />
+        <!-- 文件名必须和类名相同 -->
+        <module name="OuterTypeFilename"/>
+        <!-- 检查long类型的常量在定义时是否由大写的“L”后缀。 -->
+        <module name="UpperEll"/>
+		<!-- 匿名内部类长度，最大60长度，默认是20 -->
+		<module name="AnonInnerLength">
+		      <property name="max" value="60"/>
+		</module>
+		<!-- 每个方法最大150行，这也是默认值 --> 
+        <module name="MethodLength">
+        	<property name="max" value="150"/>
+        </module>
+        <!-- 最大的方法参数个数，默认是7个 ，设置只对普通方法有效，对构造方法无效-->
+        <module name="ParameterNumber">
+		   <property name="max" value="5"/>
+		   <property name="tokens" value="METHOD_DEF"/>
+		</module>
+		
+		<!-- 命名 -->
+		<!-- 拒绝非法常量名 -->
+        <module name="ConstantName"/>
+        <!-- 泛型参数命名，只能用大写字母标识 -->
+        <module name="ClassTypeParameterName"/>
+        <module name="InterfaceTypeParameterName"/>
+        <module name="MethodTypeParameterName"/>
+        <!-- 类型(Class或Interface)名的检查-->
+        <module name="TypeName" />
+        <!-- 方法名的检查 -->
+        <module name="MethodName"/>
+        <!-- 方法的参数名检查 -->   
+        <module name="ParameterName " /> 
+        <!-- 静态变量命名，（不包括static final型）的检查 --> 
+        <module name="StaticVariableName"/>
+        <!-- 成员变量命名 -->
+        <module name="MethodName"/>
+        <!-- 局部变量命名 -->
+        <module name="LocalVariableName"/>
+        <!-- 局部final变量命名 -->
+        <module name="LocalFinalVariableName"/>
+    </module>
+    
+</module>
