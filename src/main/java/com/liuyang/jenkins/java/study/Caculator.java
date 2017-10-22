@@ -2,11 +2,10 @@ package com.liuyang.jenkins.java.study;
 
 
 /**
- * Description:
  * 计算器类
- * @author Leo
- * @version V1.0  
- * created on 2017年10月14日下午3:13:05
+ * @author 柳杨
+ * @version V1.0.0 
+ * created on 2017年10月14日  15:13:05
  */
 public class Caculator {
 	public static final int JAN = 1;
