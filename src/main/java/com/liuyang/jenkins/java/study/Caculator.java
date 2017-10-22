@@ -8,17 +8,29 @@ package com.liuyang.jenkins.java.study;
  * created on 2017年10月14日  15:13:05
  */
 public class Caculator {
+	/**JAN 一月*/
 	public static final int JAN = 1;
+	/**FEBR 二月*/
 	public static final int FEBR = 2;
+	/**MAR 三月*/
 	public static final int MAR = 3;
+	/**APRI 四月*/
 	public static final int APRI = 4;
+	/**MAY 五月*/
 	public static final int MAY = 5;
+	/**JUNE 六月*/
 	public static final int JUNE = 6;
+	/**JULY 七月*/
 	public static final int JULY = 7;
+	/**AUG 八月*/
 	public static final int AUG = 8;
+	/**SEMP 九月*/
 	public static final int SEMP = 9;
+	/**OCT 十月*/
 	public static final int OCT = 10;
+	/**NOV 十一月*/
 	public static final int NOV = 11;
+	/**DEC 十二月*/
 	public static final int DEC = 12;
 	/**
 	 * 加法运算
