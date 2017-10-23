@@ -100,6 +100,7 @@ public class Caculator {
 			break;
 		default:
 			season = "unknown";
+			break;
 		}
 		return season;
 	}
