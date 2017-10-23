@@ -116,7 +116,17 @@
                 		<format>xml</format>
                 	</formats>
                 </configuration>
-             </plugin>  
+             </plugin> 
+             <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-pmd-plugin</artifactId>
+             <version>3.8</version>
+             <configuration>
+             	<rulesets>
+             		<ruleset>src/main/resources/rulesets/java/my-ruleset.xml</ruleset>
+             	</rulesets>
+             </configuration>
+	        </plugin> 
           </reportPlugins>
         </configuration>
       </plugin>
