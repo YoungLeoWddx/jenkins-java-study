@@ -125,8 +125,21 @@
              	<rulesets>
              		<ruleset>src/main/resources/rulesets/java/my-ruleset.xml</ruleset>
              	</rulesets>
+             	<!-- CPD的配置，检查重复代码 -->
+             	<minimumTokens>50</minimumTokens>
+             	<ignoreIdentifiers>true</ignoreIdentifiers>
              </configuration>
 	        </plugin> 
+	        <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>3.0.4</version>
+                <configuration>
+                	<effort>Max</effort>
+                	<findbugsXmlOutput>true</findbugsXmlOutput>
+                	<xmlOutput>true</xmlOutput>
+                </configuration>
+            </plugin>
           </reportPlugins>
         </configuration>
       </plugin>
