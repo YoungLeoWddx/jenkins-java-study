@@ -125,8 +125,8 @@
              	<rulesets>
              		<ruleset>src/main/resources/rulesets/java/my-ruleset.xml</ruleset>
              	</rulesets>
-             	<!-- CPD的配置，检查重复代码 -->
-             	<minimumTokens>50</minimumTokens>
+             	<!-- CPD的配置，检查重复代码，最少20行 -->
+             	<minimumTokens>20</minimumTokens>
              	<ignoreIdentifiers>true</ignoreIdentifiers>
              </configuration>
 	        </plugin> 
