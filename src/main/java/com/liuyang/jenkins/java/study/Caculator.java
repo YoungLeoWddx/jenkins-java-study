@@ -109,7 +109,7 @@ public class Caculator {
 	 * 测试空指针异常检查
 	 */
 	public void testNull(){
-		String abc = Math.abs(-1) > 2 ? "abc" : null;
+		String abc = null;
 		System.out.println(abc.length());
 	}
 }
