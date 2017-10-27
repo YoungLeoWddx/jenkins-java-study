@@ -7,7 +7,7 @@ package com.liuyang.jenkins.java.study;
  * @version V1.0.0 
  * created on 2017年10月14日  15:13:05
  */
-public class Caculator {
+public class Caculator 
 	/**JAN 一月*/
 	public static final int JAN = 1;
 	/**FEBR 二月*/
