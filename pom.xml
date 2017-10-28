@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.liuyang.jenkins.study</groupId>
   <artifactId>jenkins-java</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>002-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>jenkins-java</name>
@@ -149,9 +148,10 @@
  </build>
  
  	<scm>
-		<!--SCM的URL,该URL描述了版本库和如何连接到版本库。这个url就是该项目的svn地址，欲知详情，请看SCMs提供的URL格式和列表。该连接只读。-->     
-		<url>scm:git:https://github.com/YoungLeoWddx/jenkins-java-study</url>
+		<!--SCM的URL,该URL描述了版本库和如何连接到版本库。这个url就是该项目的git仓库地址，欲知详情，请看SCMs提供的URL格式和列表。该连接只读。-->     
+		<url>scm:git:file:///C:/develop/STS3.8.3-WorkSpace/jenkins-java-study/.git</url>
 		<!--给开发者使用的，类似connection元素。即该连接不仅仅只读-->    
-        <developerConnection>scm:git:https://github.com/YoungLeoWddx/jenkins-java-study</developerConnection> 
-	</scm>
+        <developerConnection>scm:git:file:///C:/develop/STS3.8.3-WorkSpace/jenkins-java-study/.git</developerConnection> 
+	  <tag>HEAD</tag>
+  </scm>
 </project>
