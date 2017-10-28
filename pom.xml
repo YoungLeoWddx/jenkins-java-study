@@ -3,7 +3,7 @@
 
   <groupId>com.liuyang.jenkins.study</groupId>
   <artifactId>jenkins-java</artifactId>
-  <version>004-SNAPSHOT</version>
+  <version>005-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>jenkins-java</name>
@@ -142,9 +142,13 @@
           </reportPlugins>
         </configuration>
       </plugin>
-      
-      
- 	</plugins>
+      <!-- 配置maven-release-plugin，这个插件会帮助我们升级pom版本，提交，打tag，然后再升级版本，再提交，等等。 -->
+      <plugin>  
+		  <groupId>org.apache.maven.plugins</groupId>  
+		  <artifactId>maven-release-plugin</artifactId>  
+		  <version>2.5.3</version>
+	  </plugin>  
+     </plugins>
  </build>
  
  	<scm>
