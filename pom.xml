@@ -3,7 +3,7 @@
 
   <groupId>com.liuyang.jenkins.study</groupId>
   <artifactId>jenkins-java</artifactId>
-  <version>006-SNAPSHOT</version>
+  <version>006</version>
   <packaging>jar</packaging>
 
   <name>jenkins-java</name>
@@ -156,6 +156,6 @@
 		<url>scm:git:https://github.com/YoungLeoWddx/jenkins-java-study</url>
 		<!--给开发者使用的，类似connection元素。即该连接不仅仅只读-->    
         <developerConnection>scm:git:https://github.com/YoungLeoWddx/jenkins-java-study</developerConnection> 
-    <tag>HEAD</tag>
+    <tag>jenkins-java-006</tag>
   </scm>
 </project>
