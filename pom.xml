@@ -156,6 +156,5 @@
 		<url>scm:git:https://github.com/YoungLeoWddx/jenkins-java-study</url>
 		<!--给开发者使用的，类似connection元素。即该连接不仅仅只读-->    
         <developerConnection>scm:git:https://github.com/YoungLeoWddx/jenkins-java-study</developerConnection> 
-	  <tag>HEAD</tag>
   </scm>
 </project>
