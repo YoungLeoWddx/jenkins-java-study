@@ -147,4 +147,11 @@
       
  	</plugins>
  </build>
+ 
+ 	<scm>
+		<!--SCM的URL,该URL描述了版本库和如何连接到版本库。这个url就是该项目的svn地址，欲知详情，请看SCMs提供的URL格式和列表。该连接只读。-->     
+		<url>scm:git:file:///D:/jenkins-home/workspace/jenkins-java-maven-study/.git</url>
+		<!--给开发者使用的，类似connection元素。即该连接不仅仅只读-->    
+        <developerConnection>scm:git:file:///D:/jenkins-home/workspace/jenkins-java-maven-study/.git</developerConnection> 
+	</scm>
 </project>
