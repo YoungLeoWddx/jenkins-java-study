@@ -2,7 +2,7 @@ package com.liuyang.jenkins.java.study;
 
 
 /**
- * <p>计算器类</p>
+ * <p>计算器测试类</p>
  * @author 柳杨
  * @version V1.0.0 
  * created on 2017年10月14日  15:13:05
